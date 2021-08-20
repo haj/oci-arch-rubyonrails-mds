@@ -33,8 +33,8 @@ variable "numberOfNodes" {
   default = 2
 }
 
-variable "tomcat_version" {
-  default = "9.0.45"
+variable "ruby_version" {
+  default = "3.0.1"
 }
 
 variable "igw_display_name" {
@@ -109,12 +109,12 @@ variable "InstanceFlexShapeMemory" {
 
 variable "instance_os" {
   description = "Operating system for compute instances"
-  default     = "Oracle Linux"
+  default     = "Canonical Ubuntu"
 }
 
 variable "linux_os_version" {
   description = "Operating system version for all Linux instances"
-  default     = "8"
+  default     = "20.04"
   #  default     = "7.9"
 }
 
@@ -123,7 +123,7 @@ variable "mysql_db_system_admin_username" {
 }
 
 variable "mysql_db_name" {
-  default = "mydb"
+  default = "myapp"
 }
 
 # variable mysql_db_system_availability_domain {}

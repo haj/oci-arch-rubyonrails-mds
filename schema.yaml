@@ -1,8 +1,8 @@
 ## Copyright © 2020, Oracle and/or its affiliates. 
 ## All rights reserved. The Universal Permissive License (UPL), Version 1.0 as shown at http://oss.oracle.com/licenses/upl
 
-title: "Create highly available Tomcat setup with web application accessing MDS in Oracle Cloud Infrastructure"
-stackDescription: "Deploy highly available Tomcat setup with web application accessing MySQL Database Service (MDS) in Oracle Cloud Infrastructure."
+title: "Create highly available Ruby on Rails web application accessing MySQL in Oracle Cloud Infrastructure"
+stackDescription: "Deploy highly available Ruby on Rails web application accessing MySQL Database Service (MDS) in Oracle Cloud Infrastructure."
 schemaVersion: 1.1.0
 version: "20190404"
 locale: "en"
@@ -23,7 +23,7 @@ variableGroups:
   - availablity_domain_name
   - mysql_db_system_admin_password
   - numberOfNodes
-  - tomcat_version
+  - ruby_version
   - use_bastion_service
   - show_advanced
 
@@ -119,8 +119,8 @@ variables:
     maximum: 128
     multipleOf: 1
     default: 2
-    title: "How many Tomcat Nodes?"
-    description: "Choose number of Tomcat Nodes to be deployed."
+    title: "How many Ruby on Rails nodes?"
+    description: "Choose number of Ruby on Rails nodes to be deployed."
 
   use_bastion_service:
     type: boolean
@@ -130,16 +130,16 @@ variables:
     title: "Use OCI Bastion Service"
     description: "Check the box to use OCI Bastion Service instead of Bastion Host VM."
 
-  tomcat_version:
+  ruby_version:
     type: enum
-    title: "Tomcat Version"
-    description: "Choose Tomcat Version"
-    default: "9.0.45"
+    title: "Ruby Version"
+    description: "Choose Ruby Version"
+    default: "3.0.1"
     required: false 
     enum:
-      - "9.0.45"
-      - "8.5.65"
-      - "7.0.108"
+      - "3.0.1"
+      - "3.0.0"
+      - "2.7.4"
 
   mysql_is_highly_available:
     type: boolean
@@ -369,19 +369,19 @@ variables:
     required: false
     title: "Instance OS"
     description: "An Operating System that determines the operating system for the instance."
-    default: "Oracle Linux"
+    default: "Canonical Ubuntu"
     enum:
-      - "Oracle Linux"
+      - "Canonical Ubuntu"
 
   linux_os_version:
     type: enum
     required: false
     title: "Instance OS version"
     description: "An Operating System version that determines the operating system version for the instance."
-    default: "8"
+    default: "20.04"
     enum:
-      - "8"
-      - "7.9"
+      - "20.04"
+      - "18.04"
 
   mysql_shape_name:
     type: enum
@@ -465,9 +465,9 @@ outputs:
     type: copyableString
     visible: true
 
-  todoapp_url:
-    title: "TODO App URL"
-    displayText: "TODO App URL"
+  railsapp_url:
+    title: "Rails App URL"
+    displayText: "Rails App URL"
     type: copyableString
     visible: true
 

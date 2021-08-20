@@ -15,7 +15,7 @@ data "oci_core_images" "InstanceImageOCID" {
 
   filter {
     name   = "display_name"
-    values = ["^.*Oracle[^G]*$"]
+    values = ["^.*Ubuntu[^G]*$"]
     regex  = true
   }
 }

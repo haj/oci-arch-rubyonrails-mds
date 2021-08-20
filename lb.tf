@@ -55,7 +55,7 @@ resource "oci_load_balancer_listener" "lb_listener_app01" {
 
 }
 
-resource "oci_load_balancer_backend" "lb_be_tomcat" {
+resource "oci_load_balancer_backend" "lb_be_ror" {
   count            = var.numberOfNodes
   load_balancer_id = oci_load_balancer.lb01.id
   backendset_name  = oci_load_balancer_backend_set.lb_be_app01.name

@@ -34,11 +34,11 @@ locals {
   is_flexible_node_shape = contains(local.compute_flexible_shapes, var.InstanceShape)
 }
 
-resource "oci_core_instance" "tomcat-server" {
+resource "oci_core_instance" "ror-server" {
   count               = var.numberOfNodes
   availability_domain = var.availablity_domain_name == "" ? data.oci_identity_availability_domains.ADs.availability_domains[var.availablity_domain_number]["name"] : var.availablity_domain_name
   compartment_id      = var.compartment_ocid
-  display_name        = "tomcat-server-${count.index}"
+  display_name        = "ror-server-${count.index}"
   fault_domain        = "FAULT-DOMAIN-${(count.index % 3) + 1}"
   shape               = var.InstanceShape
 

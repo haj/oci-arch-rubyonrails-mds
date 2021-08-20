@@ -6,8 +6,8 @@ output "generated_ssh_private_key" {
   sensitive = false
 }
 
-output "todoapp_url" {
-  value = "http://${oci_load_balancer.lb01.ip_addresses[0]}/todoapp/list"
+output "railsapp_url" {
+  value = "http://${oci_load_balancer.lb01.ip_addresses[0]}/"
 }
 
 output "bastion_public_ip" {
@@ -18,7 +18,7 @@ output "bastion_ssh_metadata" {
   value = oci_bastion_session.ssh_via_bastion_service.*.ssh_metadata
 }
 
-output "tomcat-server_private_ips" {
+output "rails-server_private_ips" {
   value = data.oci_core_vnic.tomcat-server_primaryvnic.*.private_ip_address
 }
 
