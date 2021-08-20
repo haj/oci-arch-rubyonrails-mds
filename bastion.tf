@@ -13,7 +13,7 @@ resource "oci_bastion_bastion" "bastion-service" {
 }
 
 resource "oci_bastion_session" "ssh_via_bastion_service" {
-  depends_on = [oci_core_instance.tomcat-server,
+  depends_on = [oci_core_instance.ror-server,
     oci_core_nat_gateway.vcn01_nat_gateway,
     oci_core_route_table_attachment.vcn01_subnet_app01_route_table_attachment,
     oci_core_route_table.vnc01_nat_route_table,
@@ -30,12 +30,12 @@ resource "oci_bastion_session" "ssh_via_bastion_service" {
   }
   target_resource_details {
     session_type       = "MANAGED_SSH"
-    target_resource_id = oci_core_instance.tomcat-server[count.index].id
+    target_resource_id = oci_core_instance.ror-server[count.index].id
 
     #Optional
     target_resource_operating_system_user_name = "opc"
     target_resource_port                       = 22
-    target_resource_private_ip_address         = oci_core_instance.tomcat-server[count.index].private_ip
+    target_resource_private_ip_address         = oci_core_instance.ror-server[count.index].private_ip
   }
 
   display_name           = "ssh_via_bastion_service"
