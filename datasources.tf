@@ -27,16 +27,16 @@ data "oci_mysql_mysql_configurations" "mds_mysql_configurations" {
   shape_name     = var.mysql_shape_name
 }
 
-data "oci_core_vnic_attachments" "tomcat-server_primaryvnic_attach" {
+data "oci_core_vnic_attachments" "ror-server_primaryvnic_attach" {
   count               = var.numberOfNodes
   availability_domain = var.availablity_domain_name
   compartment_id      = var.compartment_ocid
-  instance_id         = oci_core_instance.tomcat-server[count.index].id
+  instance_id         = oci_core_instance.ror-server[count.index].id
 }
 
-data "oci_core_vnic" "tomcat-server_primaryvnic" {
+data "oci_core_vnic" "ror-server_primaryvnic" {
   count   = var.numberOfNodes
-  vnic_id = data.oci_core_vnic_attachments.tomcat-server_primaryvnic_attach[count.index].vnic_attachments.0.vnic_id
+  vnic_id = data.oci_core_vnic_attachments.ror-server_primaryvnic_attach[count.index].vnic_attachments.0.vnic_id
 }
 
 data "oci_identity_region_subscriptions" "home_region_subscriptions" {
@@ -47,4 +47,3 @@ data "oci_identity_region_subscriptions" "home_region_subscriptions" {
     values = [true]
   }
 }
-

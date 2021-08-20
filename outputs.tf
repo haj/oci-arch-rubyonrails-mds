@@ -19,6 +19,6 @@ output "bastion_ssh_metadata" {
 }
 
 output "rails-server_private_ips" {
-  value = data.oci_core_vnic.tomcat-server_primaryvnic.*.private_ip_address
+  value = data.oci_core_vnic.ror-server_primaryvnic.*.private_ip_address
 }
 

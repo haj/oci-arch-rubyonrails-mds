@@ -1,6 +1,4 @@
-# oci-arch-tomcat-mds
-
-Apache Tomcat® is an open source Java application server. It implements the Java Servlet, JavaServer Pages, Java Expression Language and Java WebSocket technologies.
+# oci-arch-rubyonrails-mds
 
 MySQL Database Service is a fully-managed Oracle Cloud Infrastructure native service. It's developed, managed, and supported by the MySQL team at Oracle. Tasks such as backup and recovery, database and operating system patching, and so on are automated. You are responsible solely for managing your data, schema designs, and access policies.
 
@@ -8,7 +6,7 @@ MySQL Database Service is a fully-managed Oracle Cloud Infrastructure native ser
 
 - Permission to `manage` the following types of resources in your Oracle Cloud Infrastructure tenancy: `vcns`, `internet-gateways`, `route-tables`, `network-security-groups`, `subnets`, `mysql-family`, and `instances`.
 
-- Quota to create the following resources: 1 VCN, 3 subnets, 1 Internet Gateway, 1 NAT Gateway, 2 route rules, 1 MDS instance, and 3 compute instances (bastion host + 2 Tomcat servers).
+- Quota to create the following resources: 1 VCN, 3 subnets, 1 Internet Gateway, 1 NAT Gateway, 2 route rules, 1 MDS instance, and 3 compute instances (bastion host + 2 Ruby on Rails servers).
 
 If you don't have the required permissions and quota, contact your tenancy administrator. See [Policy Reference](https://docs.cloud.oracle.com/en-us/iaas/Content/Identity/Reference/policyreference.htm), [Service Limits](https://docs.cloud.oracle.com/en-us/iaas/Content/General/Concepts/servicelimits.htm), [Compartment Quotas](https://docs.cloud.oracle.com/iaas/Content/General/Concepts/resourcequotas.htm).
 
@@ -39,8 +37,8 @@ If you don't have the required permissions and quota, contact your tenancy admin
 Now, you'll want a local copy of this repo. You can make that with the commands:
 
 ```
-    git clone https://github.com/oracle-quickstart/oci-arch-tomcat-mds.git
-    cd oci-arch-tomcat-mds
+    git clone https://github.com/oracle-quickstart/oci-arch-rubyonrails-mds.git
+    cd oci-arch-rubyonrails-mds
     ls
 ```
 
@@ -65,7 +63,7 @@ availablity_domain_name = "<availablity_domain_name>"
 # Compartment
 compartment_ocid = "<compartment_ocid>"
 
-# Number of Tomcat nodes (optional)
+# Number of Ruby on Rails nodes (optional)
 numberOfNodes = 2
 
 # MySQL DBSystem Admin Password 
@@ -82,10 +80,10 @@ Run the following commands:
 
 
 ### Testing your Deployment
-After the deployment is finished, you can test that your Tomcat was deployed correctly and can access the tomcat demo application with MDS as database system. Pick up the value of the todoapp_url:
+After the deployment is finished, you can test that your Ruby on Rails was deployed correctly and can access the Ruby on Rails demo page with MDS as database system. Pick up the value of the railsapp_url:
 
 ````
-todoapp_url = http://193.122.204.54/todoapp/list
+railsapp_url = http://193.122.204.54/
 `````
 
 Then copy it into Web browser. Here is the example of the succesfull outcome:
