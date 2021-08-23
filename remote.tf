@@ -36,7 +36,7 @@ resource "null_resource" "ror_bootstrap" {
       user                = "ubuntu"
       host                = data.oci_core_vnic.ror-server_primaryvnic[count.index].private_ip_address
       private_key         = tls_private_key.public_private_key_pair.private_key_pem
-      script_path         = "/home/opc/myssh.sh"
+      script_path         = "/home/ubuntu/myssh.sh"
       agent               = false
       timeout             = "1m"
       bastion_host        = var.use_bastion_service ? "host.bastion.${var.region}.oci.oraclecloud.com" : oci_core_instance.bastion_instance[0].public_ip
@@ -56,7 +56,7 @@ resource "null_resource" "ror_bootstrap" {
       user                = "ubuntu"
       host                = data.oci_core_vnic.ror-server_primaryvnic[count.index].private_ip_address
       private_key         = tls_private_key.public_private_key_pair.private_key_pem
-      script_path         = "/home/opc/myssh.sh"
+      script_path         = "/home/ubuntu/myssh.sh"
       agent               = false
       timeout             = "1m"
       bastion_host        = var.use_bastion_service ? "host.bastion.${var.region}.oci.oraclecloud.com" : oci_core_instance.bastion_instance[0].public_ip
@@ -74,7 +74,7 @@ resource "null_resource" "ror_bootstrap" {
       user                = "ubuntu"
       host                = data.oci_core_vnic.ror-server_primaryvnic[count.index].private_ip_address
       private_key         = tls_private_key.public_private_key_pair.private_key_pem
-      script_path         = "/home/opc/myssh.sh"
+      script_path         = "/home/ubuntu/myssh.sh"
       agent               = false
       timeout             = "15m"
       bastion_host        = var.use_bastion_service ? "host.bastion.${var.region}.oci.oraclecloud.com" : oci_core_instance.bastion_instance[0].public_ip
