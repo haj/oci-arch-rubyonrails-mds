@@ -33,7 +33,7 @@ resource "null_resource" "ror_bootstrap" {
   provisioner "file" {
     connection {
       type                = "ssh"
-      user                = "opc"
+      user                = "ubuntu"
       host                = data.oci_core_vnic.ror-server_primaryvnic[count.index].private_ip_address
       private_key         = tls_private_key.public_private_key_pair.private_key_pem
       script_path         = "/home/opc/myssh.sh"
@@ -53,7 +53,7 @@ resource "null_resource" "ror_bootstrap" {
   provisioner "file" {
     connection {
       type                = "ssh"
-      user                = "opc"
+      user                = "ubuntu"
       host                = data.oci_core_vnic.ror-server_primaryvnic[count.index].private_ip_address
       private_key         = tls_private_key.public_private_key_pair.private_key_pem
       script_path         = "/home/opc/myssh.sh"
@@ -71,7 +71,7 @@ resource "null_resource" "ror_bootstrap" {
   provisioner "remote-exec" {
     connection {
       type                = "ssh"
-      user                = "opc"
+      user                = "ubuntu"
       host                = data.oci_core_vnic.ror-server_primaryvnic[count.index].private_ip_address
       private_key         = tls_private_key.public_private_key_pair.private_key_pem
       script_path         = "/home/opc/myssh.sh"
