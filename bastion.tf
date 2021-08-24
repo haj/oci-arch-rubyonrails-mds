@@ -33,7 +33,7 @@ resource "oci_bastion_session" "ssh_via_bastion_service" {
     target_resource_id = oci_core_instance.ror-server[count.index].id
 
     #Optional
-    target_resource_operating_system_user_name = "opc"
+    target_resource_operating_system_user_name = "ubuntu"
     target_resource_port                       = 22
     target_resource_private_ip_address         = oci_core_instance.ror-server[count.index].private_ip
   }

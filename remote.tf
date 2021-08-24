@@ -46,7 +46,7 @@ resource "null_resource" "ror_bootstrap" {
     }
 
     content     = data.template_file.ror_bootstrap_template[count.index].rendered
-    destination = "/home/opc/ror_bootstrap.sh"
+    destination = "/home/ubuntu/ror_bootstrap.sh"
   }
 
 
