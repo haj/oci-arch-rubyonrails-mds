@@ -41,14 +41,19 @@ gem install rails
 gem install bundler
 
 #create an app
-rails new myapp -d mysql -p /opt/myapp
+sudo mkdir /opt/apps
+sudo chown ubuntu:ubuntu /opt/apps
+cd /opt/apps
+rails new myapp -d mysql
 
 #Open port 80 for HTTP
-sudo iptables -I INPUT 6 -m state --state NEW -p tcp --dport 80 -j ACCEPT
+sudo iptables -I INPUT 6 -m state --state NEW -p tcp --dport 8080 -j ACCEPT
+
+#move database config to the application
+cd myapp
+mv /home/ubuntu/database.yml /opt/apps/myapp/config/database.yml
+rake db:create
+rake db:migrate
 
 #start rails server bind all interfaces
-cd /opt/myapp
-
-mv /home/ubuntu/database.yml /opt/myapp/config/database.yml
-
-rails s -p 8080  -b 0.0.0.0
+rails s -p 8080 -b 0.0.0.0 & >> ./log/startup.log
