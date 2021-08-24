@@ -85,7 +85,7 @@ resource "null_resource" "ror_bootstrap" {
     }
     inline = [
       "chmod +x ~/ror_bootstrap.sh",
-      "sudo ~/ror_bootstrap.sh"
+      "~/ror_bootstrap.sh"
 
     ]
   }
