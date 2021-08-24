@@ -46,7 +46,7 @@ sudo chown ubuntu:ubuntu /opt/apps
 cd /opt/apps
 rails new myapp -d mysql
 
-#Open port 80 for HTTP
+#Open port 8080 for HTTP
 sudo iptables -I INPUT 6 -m state --state NEW -p tcp --dport 8080 -j ACCEPT
 
 #move database config to the application
@@ -56,4 +56,4 @@ rake db:create
 rake db:migrate
 
 #start rails server bind all interfaces
-rails s -p 8080 -b 0.0.0.0 & >> ./log/startup.log
+rails s -p 8080 -b 0.0.0.0 >> ./log/startup.log &
